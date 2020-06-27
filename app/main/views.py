@@ -23,7 +23,7 @@ from .. import scheduler
 from app.job.core import jobfromparm
 from ..dingding import dingding
 #demo环境切换
-DEMO_ENV=False
+DEMO_ENV=True
 
 @main.route('/dingding',methods=['POST'])
 def dingding():

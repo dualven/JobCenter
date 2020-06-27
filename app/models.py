@@ -226,3 +226,5 @@ class LoginLog(db.Model):
             'login_time': self.login_time,
         }
         return json_post
+
+

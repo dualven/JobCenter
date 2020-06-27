@@ -14,6 +14,7 @@ from .main import main as main_blueprint
 from .auth import auth as auth_blueprint
 from .job import job as job_blueprint
 from flask_debugtoolbar import DebugToolbarExtension
+from werkzeug.security import generate_password_hash, check_password_hash
 
 def create_app(config_name=None):
     if config_name is None:
@@ -99,3 +100,16 @@ def register_commands(app):
         #click.echo('Initializing the roles and permissions...')
         Role.insert_roles()
         click.echo('Done.')
+
+    @app.cli.command()
+    def admin():
+      admin = User(
+        username='admin2',
+        email='dualven2@163.com',
+        password='admin2',
+        #password_hash=generate_password_hash('admin2'),
+        role_id=5,
+       )
+      db.session.add(admin)
+      db.session.commit()
+      click.echo('Done.')

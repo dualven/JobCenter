@@ -15,7 +15,7 @@ mysql_info = dict(
     port = 3306,
     dbname = 'jobs',
     username = 'root',
-    password = 'guo.150019'
+    password = '123456'
 )
 
 '''
@@ -95,7 +95,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = MYSQL_URL
-
+    DEMO_ENV=False
     #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://' + db_user + ':' + db_pass + '@' + db_host + '/' + db_name + '?charset=utf8mb4'
 
 class TestingConfig(Config):
@@ -103,7 +103,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = MYSQL_URL
-    # DEMO_ENV=False
+    DEMO_ENV=False
 
 config = {
     'development': DevelopmentConfig,
